@@ -1,0 +1,145 @@
+.wrapper {
+  padding-top: 120px;
+}
+
+.header {
+  padding: var(--spacing-3xl) 0;
+  text-align: center;
+}
+
+.subtitle {
+  color: var(--color-gray-300);
+  font-size: 1.1rem;
+  margin-top: var(--spacing-sm);
+}
+
+.filterSection {
+  padding-bottom: var(--spacing-2xl);
+}
+
+.filterMenu {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.filterBtn {
+  color: var(--color-gray-300);
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-size: 0.9rem;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-full);
+  transition: all var(--transition-normal);
+}
+
+.filterBtn:hover {
+  background-color: rgba(201, 161, 74, 0.1);
+  color: var(--color-gold);
+  border-color: rgba(201, 161, 74, 0.3);
+}
+
+.filterBtn.active {
+  background-color: var(--color-gold);
+  color: var(--color-black);
+  border-color: var(--color-gold);
+}
+
+.gallerySection {
+  padding-bottom: var(--spacing-4xl);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  grid-auto-rows: 20px;
+  gap: 20px;
+}
+
+.gridItem {
+  position: relative;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background-color: var(--color-gray-900);
+}
+
+.gridItem.h-medium {
+  grid-row-end: span 15;
+}
+
+.gridItem.h-tall {
+  grid-row-end: span 22;
+}
+
+.gridItem.h-large {
+  grid-row-end: span 18;
+}
+
+.image {
+  object-fit: cover;
+  transition: transform var(--transition-slow);
+}
+
+.gridItem:hover .image {
+  transform: scale(1.08);
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  border: 2px solid var(--color-gold);
+  border-radius: var(--radius-sm);
+  box-sizing: border-box;
+}
+
+.gridItem:hover .overlay {
+  opacity: 1;
+}
+
+.overlay h3 {
+  color: var(--color-white);
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-xs);
+  text-align: center;
+  transform: translateY(20px);
+  transition: transform var(--transition-normal);
+}
+
+.gridItem:hover .overlay h3 {
+  transform: translateY(0);
+}
+
+.overlay p {
+  color: var(--color-gold);
+  font-family: var(--font-sans);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 0.85rem;
+  transform: translateY(20px);
+  transition: transform var(--transition-normal) 0.1s;
+}
+
+.gridItem:hover .overlay p {
+  transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  }
+}

@@ -1,0 +1,131 @@
+.wrapper {
+  padding-top: 120px;
+}
+
+.header {
+  padding: var(--spacing-3xl) 0;
+  text-align: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.subtitle {
+  color: var(--color-gold);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  margin-top: var(--spacing-md);
+}
+
+.visionSection {
+  padding: var(--spacing-4xl) 0;
+}
+
+.splitGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-4xl);
+  align-items: center;
+}
+
+.splitGrid.reverse {
+  direction: rtl;
+}
+
+.splitGrid.reverse > * {
+  direction: ltr;
+}
+
+.textContent p {
+  color: var(--color-gray-300);
+  font-size: 1.1rem;
+  line-height: 1.8;
+  margin-bottom: var(--spacing-lg);
+}
+
+.imageBox {
+  position: relative;
+  height: 500px;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+}
+
+.imageBox::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  box-shadow: inset 0 0 50px rgba(0,0,0,0.5);
+}
+
+.image {
+  object-fit: cover;
+  transition: transform 1s ease;
+}
+
+.imageBox:hover .image {
+  transform: scale(1.05);
+}
+
+.craftSection {
+  padding: var(--spacing-4xl) 0;
+  background-color: var(--color-gray-900);
+}
+
+.materialsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-2xl);
+}
+
+.materialCard {
+  background-color: var(--color-black);
+  padding: var(--spacing-2xl);
+  border: 1px solid rgba(201, 161, 74, 0.1);
+  position: relative;
+}
+
+.goldLine {
+  width: 40px;
+  height: 2px;
+  background-color: var(--color-gold);
+  margin-bottom: var(--spacing-md);
+  transition: width var(--transition-normal);
+}
+
+.materialCard:hover .goldLine {
+  width: 80px;
+}
+
+.materialCard h3 {
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  margin-bottom: var(--spacing-sm);
+  color: var(--color-white);
+}
+
+.materialCard p {
+  color: var(--color-gray-300);
+  line-height: 1.6;
+}
+
+.artisansSection {
+  padding: var(--spacing-4xl) 0;
+}
+
+@media (max-width: 900px) {
+  .splitGrid, .splitGrid.reverse {
+    grid-template-columns: 1fr;
+    direction: ltr;
+    gap: var(--spacing-2xl);
+  }
+  
+  .imageBox {
+    height: 400px;
+  }
+  
+  .materialsGrid {
+    grid-template-columns: 1fr;
+  }
+}
