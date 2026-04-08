@@ -64,8 +64,8 @@ export default function About() {
             transition={{ duration: 1 }}
           >
             <Image 
-              src="https://images.unsplash.com/photo-1605806616949-1e87b487bc2a?q=80&w=800&auto=format&fit=crop"
-              alt="Sculpture detail"
+              src="/images/projects-temples.jpg"
+              alt="Temple Architecture — Signature Work"
               fill
               className={styles.image}
             />
@@ -148,8 +148,8 @@ export default function About() {
             transition={{ duration: 1 }}
           >
             <Image 
-              src="https://images.unsplash.com/photo-1577083553258-00511f56860d?q=80&w=800&auto=format&fit=crop"
-              alt="Artisan working"
+              src="/images/drastee-art-home-1.jpg"
+              alt="Master Artisans at Work — Drashtee Art Zone"
               fill
               className={styles.image}
             />

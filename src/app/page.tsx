@@ -29,9 +29,9 @@ export default function Home() {
       {/* HERO SECTION */}
       <section className={styles.hero}>
         <div className={styles.heroBg}>
-          <Image 
-            src="https://images.unsplash.com/photo-1549887552-cb1071d3e5ca?q=80&w=2000&auto=format&fit=crop"
-            alt="Luxury Sculpture Background"
+          <Image
+            src="/hero.png"
+            alt="Drashtee Art Zone — Hero Sculpture"
             fill
             className={styles.heroImage}
             priority
@@ -104,8 +104,8 @@ export default function Home() {
             variants={fadeUp}
           >
             <Image 
-              src="https://images.unsplash.com/photo-1629814467576-8cc9551c6e1c?q=80&w=800&auto=format&fit=crop"
-              alt="Artisan crafting"
+              src="/images/drastee-art-home-2.jpg"
+              alt="Drashtee Art Zone — Studio Craftsmanship"
               width={600}
               height={700}
               className={styles.storyImage}
@@ -167,24 +167,24 @@ export default function Home() {
 
           <div className={styles.featuredGrid}>
             <div className={styles.featuredLarge}>
-              <Image src="https://images.unsplash.com/photo-1544413165-4f466b0811b7?q=80&w=1200&auto=format&fit=crop" alt="Temple Architecture" fill className={styles.featuredImage} />
+              <Image src="/images/projects-temples.jpg" alt="Temple Architecture — Signature Projects" fill className={styles.featuredImage} />
               <div className={styles.featuredOverlay}>
                 <h3 className="heading-3">Grand Temple Architecture</h3>
-                <p>Marble & Gold</p>
+                <p>Marble &amp; Stone</p>
               </div>
             </div>
             <div className={styles.featuredSmall}>
-              <Image src="https://images.unsplash.com/photo-1600170081014-411a2f6460aa?q=80&w=800&auto=format&fit=crop" alt="Custom Statue" fill className={styles.featuredImage} />
+              <Image src="/images/statue-02-atal-bihari-vajpayee.jpg" alt="Divine Deity Statue — Premium Craftsmanship" fill className={styles.featuredImage} />
               <div className={styles.featuredOverlay}>
                 <h3 className="heading-3">Divine Deity Statue</h3>
                 <p>Premium Sandstone</p>
               </div>
             </div>
             <div className={styles.featuredSmall}>
-              <Image src="https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=800&auto=format&fit=crop" alt="Luxury Gate" fill className={styles.featuredImage} />
+              <Image src="/images/bronze-sculptures.png" alt="Bronze Sculpture — Luxury Casting" fill className={styles.featuredImage} />
               <div className={styles.featuredOverlay}>
-                <h3 className="heading-3">Royal Entrances</h3>
-                <p>Cast Iron & Brass</p>
+                <h3 className="heading-3">Bronze Masterpieces</h3>
+                <p>Cast Bronze &amp; Brass</p>
               </div>
             </div>
           </div>

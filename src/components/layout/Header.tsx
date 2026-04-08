@@ -16,7 +16,6 @@ const navLinks = [
     href: '/portfolio',
     subLinks: [
       { text: 'Bronze Sculptures', href: '/portfolio?filter=bronze-sculptures' },
-      { text: 'Custom Bronze Sculptures', href: '/portfolio?filter=custom-bronze-sculptures' },
       { text: 'Temple Architecture', href: '/portfolio?filter=temple-architecture' },
       { text: 'Fiberglass Sculptures', href: '/portfolio?filter=fiberglass-sculptures' },
       { text: 'Government Projects', href: '/portfolio?filter=government-projects' },

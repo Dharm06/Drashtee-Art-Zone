@@ -67,6 +67,14 @@
   margin-bottom: var(--spacing-xl);
 }
 
+.desc p {
+  margin: 0 0 var(--spacing-md) 0;
+}
+
+.desc p:last-child {
+  margin-bottom: 0;
+}
+
 .featuresList {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -89,6 +97,44 @@
   background-color: var(--color-gold);
   border-radius: 50%;
   box-shadow: 0 0 5px rgba(201, 161, 74, 0.5);
+}
+
+.processBlock {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.processTitle {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  color: var(--color-gold);
+  margin-bottom: var(--spacing-md);
+}
+
+.processList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-sm) var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.processList li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--color-white);
+  font-size: 0.95rem;
+}
+
+.processNote {
+  color: var(--color-gray-300);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.ctaGroup {
+  display: flex;
+  gap: var(--spacing-md);
+  flex-wrap: wrap;
 }
 
 .ctaLink {
@@ -147,6 +193,10 @@
   }
   
   .featuresList {
+    grid-template-columns: 1fr;
+  }
+
+  .processList {
     grid-template-columns: 1fr;
   }
   

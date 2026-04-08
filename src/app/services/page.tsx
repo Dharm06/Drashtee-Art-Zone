@@ -7,6 +7,12 @@ import { motion } from 'framer-motion';
 import { Button } from '@/components/ui/Button';
 import styles from './page.module.css';
 
+const whatsappNumber = "15551234567";
+const getWhatsappLink = (title: string) =>
+  `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
+    `Hello, I want an inquiry about ${title}.`,
+  )}`;
+
 const fadeUp = {
   hidden: { opacity: 0, y: 30 },
   visible: { opacity: 1, y: 0, transition: { duration: 0.8 } }
@@ -14,36 +20,63 @@ const fadeUp = {
 
 const servicesList = [
   {
+    id: "custom-bronze-sculptures",
+    title: "Custom Bronze Sculptures",
+    desc: [
+      "We specialize in custom bronze sculpture production ranging from portrait busts to monumental public statues up to 32 feet.",
+      "Our studio works with artists, architects, government bodies and private collectors to create high quality bronze sculptures for public spaces, temples, memorials and architectural projects."
+    ],
+    features: [
+      "Custom bronze statues",
+      "Monumental public sculptures",
+      "Portrait bust sculptures",
+      "Religious temple sculptures",
+      "Architectural bronze elements"
+    ],
+    process: [
+      "Concept design and 3D modelling",
+      "Clay modelling or digital sculpting",
+      "Mold making",
+      "Bronze casting using the lost wax method",
+      "Surface finishing and patina",
+      "Installation support"
+    ],
+    processNote: "We support projects from concept to installation and provide reliable manufacturing for large bronze sculpture commissions worldwide.",
+    image: "/images/bronze-sculptures.png",
+    reverse: false,
+    whatsappCta: true
+  },
+  {
     id: "statues",
     title: "Custom Statues & Deities",
     desc: "From miniature personal shrines to monumental 50-foot landmarks, our custom statues are carved with strict adherence to ancient geometric proportions (Shilpa Shastra). We specialize in Makrana marble, black stone, sandstone, and cast bronze.",
     features: ["Vastu Compliant", "Intricate Detailing", "Weather Resistant", "Custom Sizing"],
-    image: "https://images.unsplash.com/photo-1600170081014-411a2f6460aa?q=80&w=800&auto=format&fit=crop",
-    reverse: false
+    image: "/images/statue-02-atal-bihari-vajpayee.jpg",
+    reverse: true
   },
   {
     id: "temples",
     title: "Temple Architecture",
     desc: "Complete architectural solutions for residential, commercial, and community temples. We handle everything from the sanctum sanctorum (Garbhagriha) to the towering spires (Shikhar), ensuring structural integrity and authentic aesthetics.",
     features: ["Full Turnkey Solutions", "Hand-carved Pillars", "Sacred Geometry", "Global Installation"],
-    image: "https://images.unsplash.com/photo-1544413165-4f466b0811b7?q=80&w=800&auto=format&fit=crop",
-    reverse: true
+    image: "/images/gayatri-temple-houston-01.jpg",
+    reverse: false
   },
   {
     id: "gates",
     title: "Luxury Gates & Doors",
     desc: "Make an unforgettable first impression. Our custom-designed estate gates and intricately carved solid wood doors blend security with unparalleled luxury. Features include brass inlay, gold leafing, and smart-security integration.",
     features: ["Solid Teak/Rosewood", "Brass & Gold Inlays", "Automated Systems", "Heritage Motifs"],
-    image: "https://images.unsplash.com/photo-1578301978018-3005759f48f7?q=80&w=800&auto=format&fit=crop",
-    reverse: false
+    image: "/images/ghummat.png",
+    reverse: true
   },
   {
     id: "fountains",
     title: "Artistic Fountains",
     desc: "Transform your landscape with our bespoke stone fountains. Ranging from classical European tiers to traditional lotus cascades, each fountain is designed to create a soothing ambiance while serving as a stunning focal point.",
     features: ["Natural Stone", "Recirculating Systems", "Integrated Lighting", "Custom Water Flow"],
-    image: "https://images.unsplash.com/photo-1600703814890-ce7f6e3bfb6b?q=80&w=800&auto=format&fit=crop",
-    reverse: true
+    image: "/images/projects-garden-ram-van.jpg",
+    reverse: false
   }
 ];
 
@@ -90,7 +123,11 @@ export default function Services() {
               >
                 <div className={styles.serviceNumber}>0{index + 1}</div>
                 <h2 className={`heading-2 ${styles.title}`}>{service.title}</h2>
-                <p className={styles.desc}>{service.desc}</p>
+                <div className={styles.desc}>
+                  {Array.isArray(service.desc)
+                    ? service.desc.map((text, idx) => <p key={idx}>{text}</p>)
+                    : <p>{service.desc}</p>}
+                </div>
                 <ul className={styles.featuresList}>
                   {service.features.map((feature, idx) => (
                     <li key={idx}>
@@ -98,9 +135,36 @@ export default function Services() {
                     </li>
                   ))}
                 </ul>
-                <Link href={`/inquiry?service=${service.id}`} className={styles.ctaLink}>
-                  <Button variant="outline">Request a Quote</Button>
-                </Link>
+                {service.process && (
+                  <div className={styles.processBlock}>
+                    <h3 className={styles.processTitle}>Production process</h3>
+                    <ul className={styles.processList}>
+                      {service.process.map((step, idx) => (
+                        <li key={idx}>
+                          <span className={styles.goldBullet}></span> {step}
+                        </li>
+                      ))}
+                    </ul>
+                    {service.processNote && (
+                      <p className={styles.processNote}>{service.processNote}</p>
+                    )}
+                  </div>
+                )}
+                <div className={styles.ctaGroup}>
+                  <Link href={`/inquiry?service=${service.id}`} className={styles.ctaLink}>
+                    <Button variant="outline">Request a Quote</Button>
+                  </Link>
+                  {service.whatsappCta && (
+                    <a
+                      href={getWhatsappLink(service.title)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className={styles.ctaLink}
+                    >
+                      <Button variant="primary">Inquiry on WhatsApp</Button>
+                    </a>
+                  )}
+                </div>
               </motion.div>
               
               <motion.div 
