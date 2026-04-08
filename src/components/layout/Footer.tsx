@@ -52,15 +52,24 @@ export const Footer = () => {
             <ul className={styles.contactList}>
               <li>
                 <MapPin size={18} className="text-gold" />
-                <span>123 Artisan Valley, Luxury District, NY 10001</span>
+                <span>
+                  Drastee Art Zone<br />
+                  80 Feet Sagar Society Main Road,<br />
+                  Near Sardar Patel Arogya Bhavan,<br />
+                  Kothariya Road, Rajkot - 360002,<br />
+                  Gujarat (INDIA)
+                </span>
               </li>
               <li>
                 <Phone size={18} className="text-gold" />
-                <span>+1 (555) 123-4567</span>
+                <span>
+                  M) 9978855255, 9099015551<br />
+                  Office: 9727758587
+                </span>
               </li>
               <li>
                 <Mail size={18} className="text-gold" />
-                <span>inquiry@drasteeartzone.com</span>
+                <span>drasteeartzone@gmail.com</span>
               </li>
             </ul>
           </div>
