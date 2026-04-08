@@ -20,7 +20,7 @@ type PortfolioGroup = {
   items: PortfolioItem[];
 };
 
-const whatsappNumber = "15551234567";
+const whatsappNumber = "9978855255";
 const getWhatsappLink = (title: string) =>
   `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(
     `Hello, I want an inquiry about ${title}.`,

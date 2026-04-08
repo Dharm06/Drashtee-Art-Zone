@@ -104,7 +104,7 @@ function InquiryContent() {
             <div className={styles.whatsappCard}>
               <h4 className={styles.waTitle}>Prefer Instant Chat?</h4>
               <p>Connect with our design team instantly on WhatsApp.</p>
-              <a href="https://wa.me/15551234567" target="_blank" rel="noopener noreferrer">
+              <a href="https://wa.me/9978855255" target="_blank" rel="noopener noreferrer">
                 <Button className={styles.waBtn}>
                   <MessageCircle size={20} /> Chat on WhatsApp
                 </Button>
