@@ -197,7 +197,7 @@ export default function Services() {
             variants={fadeUp}
           >
             <h2 className="heading-2">Have a Unique Vision?</h2>
-            <p>If you can imagine it, our master artisans can sculpt it. Let's discuss your custom requirements.</p>
+            <p>If you can imagine it, our master artisans can sculpt it. Let&apos;s discuss your custom requirements.</p>
             <Link href="/inquiry">
               <Button size="lg" variant="primary">Start Consultation</Button>
             </Link>

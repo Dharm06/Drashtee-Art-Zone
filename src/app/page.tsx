@@ -4,7 +4,7 @@ import React from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Button } from '@/components/ui/Button';
 import styles from './page.module.css';
 
@@ -207,9 +207,9 @@ export default function Home() {
             viewport={{ once: true }}
             variants={fadeUp}
           >
-            <div className={styles.quoteIcon}>"</div>
+            <div className={styles.quoteIcon}>&ldquo;</div>
             <p className={styles.testimonialText}>
-              "The level of detail and devotion captured in our foundation's main temple statue is truly breathtaking. Drastee Art Zone didn't just carve a stone; they breathed divinity into it."
+              &ldquo;The level of detail and devotion captured in our foundation&apos;s main temple statue is truly breathtaking. Drastee Art Zone didn&apos;t just carve a stone; they breathed divinity into it.&rdquo;
             </p>
             <div className={styles.testimonialAuthor}>
               <h4>Ananya Singhania</h4>

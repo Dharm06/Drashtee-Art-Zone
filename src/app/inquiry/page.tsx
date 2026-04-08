@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, Suspense } from 'react';
+import React, { useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
 import { MapPin, Phone, Mail, Clock, MessageCircle } from 'lucide-react';
@@ -17,16 +17,10 @@ const fadeUp = {
 
 function InquiryContent() {
   const searchParams = useSearchParams();
-  const [projectType, setProjectType] = useState('');
+  const initialProjectType = searchParams.get('service') ?? '';
+  const [projectType, setProjectType] = useState(initialProjectType);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  useEffect(() => {
-    const service = searchParams.get('service');
-    if (service) {
-      setProjectType(service);
-    }
-  }, [searchParams]);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();

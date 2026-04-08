@@ -51,7 +51,7 @@ export default function About() {
               shilpa shastra (sculpture making) while elevating it with modern luxury and global accessibility.
             </p>
             <p>
-              We don't just create objects; we manifest spiritual energy into physical form. Whether it's a 
+              We don&apos;t just create objects; we manifest spiritual energy into physical form. Whether it&apos;s a 
               grand temple structure, a divine deity, or an opulent fountain, our vision is to craft masterworks 
               that serve as conduits for devotion and aesthetic perfection.
             </p>

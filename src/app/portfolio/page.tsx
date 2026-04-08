@@ -1,10 +1,24 @@
 "use client";
 
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, Suspense } from "react";
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import styles from "./page.module.css";
+
+type PortfolioItem = {
+  id: string | number;
+  category: string;
+  title: string;
+  image: string;
+  height: "h-tall" | "h-medium" | "h-large";
+  width?: "w-wide";
+};
+
+type PortfolioGroup = {
+  title: string;
+  items: PortfolioItem[];
+};
 
 const whatsappNumber = "15551234567";
 const getWhatsappLink = (title: string) =>
@@ -144,7 +158,7 @@ const buildCategoryItems = (
   idPrefix: string,
   title: string,
   folder: string,
-) =>
+) : PortfolioItem[] =>
   files.map((file, index) => ({
     id: `${idPrefix}-${file}`,
     category,
@@ -187,6 +201,22 @@ const templeSwaminaraynItems = buildTempleItems(
   "temple-swaminarayn",
   "Swaminarayn Temple — USA",
   "/Temple Architecture/Swaminarayn Temple USA",
+);
+
+const muktidhamItems = buildCategoryItems(
+  "government-projects",
+  muktidhamFiles,
+  "government",
+  "Muktidham — Gandhinagar, Gujarat",
+  "/Goverment Projects",
+);
+
+const ramvanItems = buildCategoryItems(
+  "fiberglass-sculptures",
+  ramvanFiles,
+  "fiberglass",
+  "Ramvan — Rajkot",
+  "/Fiberglass sculpture",
 );
 
 const bronzeAmarShahidFiles = [
@@ -283,21 +313,21 @@ const bronzeShyamaprasadItems = buildCategoryItems(
   "/Bronze Sculpture",
 );
 
-const templeGroups = [
+const templeGroups: PortfolioGroup[] = [
   { title: "Shiv Temple — Lisbon", items: templeLisbonItems },
   { title: "Gayatri Temple — Houston, USA", items: templeHoustonItems },
   { title: "Gayatri Temple — Los-Angles", items: templeLosAngelesItems },
   { title: "Swaminarayn Temple — USA", items: templeSwaminaraynItems },
 ];
 
-const templeItems = [
+const templeItems: PortfolioItem[] = [
   ...templeLisbonItems,
   ...templeHoustonItems,
   ...templeLosAngelesItems,
   ...templeSwaminaraynItems,
 ];
 
-const bronzeGroups = [
+const bronzeGroups: PortfolioGroup[] = [
   { title: "Amar Shahid Statue", items: bronzeAmarShahidItems },
   { title: "APMC Amreli", items: bronzeApmcAmreliItems },
   { title: "Lokmanya Tilak", items: bronzeLokmanyaTilakItems },
@@ -307,7 +337,7 @@ const bronzeGroups = [
   { title: "Shyamaprasad Mukerjee", items: bronzeShyamaprasadItems },
 ];
 
-const bronzeItems = [
+const bronzeItems: PortfolioItem[] = [
   ...bronzeAmarShahidItems,
   ...bronzeApmcAmreliItems,
   ...bronzeLokmanyaTilakItems,
@@ -317,26 +347,19 @@ const bronzeItems = [
   ...bronzeShyamaprasadItems,
 ];
 
-const portfolioItems = [
+const portfolioItems: PortfolioItem[] = [
   // Temple Architecture
   ...templeItems,
   // Bronze Sculptures
   ...bronzeItems,
   // Government Projects (Muktidham — Gandhinagar, Gujarat)
-  ...muktidhamFiles.map((file, index) => ({
-    id: `government-${file}`,
-    category: "government-projects",
-    title: "Muktidham — Gandhinagar, Gujarat",
-    image: `/Goverment Projects/${file}`,
-    height:
-      index % 3 === 0 ? "h-tall" : index % 3 === 1 ? "h-medium" : "h-large",
-  })),
+  ...muktidhamItems,
   // Bust Statues
   {
     id: 19,
     category: "bust-statues",
     title: "Mahatma Gandhi — Tribute Bust",
-    image: "/bust images/mahatmagandhi.jpeg",
+    image: "/Bust Images/mahatmagandhi.jpeg",
     height: "h-large",
     width: "w-wide",
   },
@@ -344,28 +367,28 @@ const portfolioItems = [
     id: 20,
     category: "bust-statues",
     title: "Bhagat Singh — Portrait",
-    image: "/bust images/bhagatsinh.jpeg",
+    image: "/Bust Images/bhagatsinh.jpeg",
     height: "h-medium",
   },
   {
     id: 21,
     category: "bust-statues",
     title: "Baba Saheb Ambedkar — Memorial  ",
-    image: "/bust images/babaambedkar.jpeg",
+    image: "/Bust Images/babaambedkar.jpeg",
     height: "h-medium",
   },
   {
     id: 22,
     category: "bust-statues",
     title: "APJ Abdul Kalam — Tribute",
-    image: "/bust images/apj-kalam.jpeg",
+    image: "/Bust Images/apj-kalam.jpeg",
     height: "h-medium",
   },
   {
     id: 23,
     category: "bust-statues",
     title: "Jyotiba Phule — Tribute Bust",
-    image: "/bust images/Jyotiba-phule.jpeg",
+    image: "/Bust Images/Jyotiba-phule.jpeg",
     height: "h-tall",
     width: "w-wide",
   },
@@ -373,7 +396,7 @@ const portfolioItems = [
     id: 24,
     category: "bust-statues",
     title: "Sir M. Visvesvaraya — Heritage Bust",
-    image: "/bust images/Sir Mr visvaraya.jpeg",
+    image: "/Bust Images/Sir Mr Visvaraya.jpeg",
     height: "h-medium",
   },
   {
@@ -391,14 +414,7 @@ const portfolioItems = [
     height: "h-medium",
   },
   // Fiberglass Sculptures (Ramvan — Rajkot)
-  ...ramvanFiles.map((file, index) => ({
-    id: `fiberglass-${file}`,
-    category: "fiberglass-sculptures",
-    title: "Ramvan — Rajkot",
-    image: `/Fiberglass sculpture/${file}`,
-    height:
-      index % 3 === 0 ? "h-tall" : index % 3 === 1 ? "h-medium" : "h-large",
-  })),
+  ...ramvanItems,
 ];
 
 const categories = [
@@ -412,23 +428,17 @@ const categories = [
 
 function PortfolioContent() {
   const searchParams = useSearchParams();
-  const [filter, setFilter] = useState("all");
+  const initialFilter = searchParams.get("filter") ?? "all";
+  const [filter, setFilter] = useState(initialFilter);
   const [imageOrientations, setImageOrientations] = useState<
     Record<string, "landscape" | "portrait">
   >({});
-
-  useEffect(() => {
-    const filterParam = searchParams.get("filter");
-    if (filterParam) {
-      setFilter(filterParam);
-    }
-  }, [searchParams]);
 
   const filteredItems = portfolioItems.filter(
     (item) => filter === "all" || item.category === filter,
   );
 
-  const renderGridItems = (items: typeof filteredItems) => (
+  const renderGridItems = (items: PortfolioItem[]) => (
     <motion.div layout className={styles.grid}>
       <AnimatePresence>
         {items.map((item) => {
